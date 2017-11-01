@@ -1,7 +1,8 @@
 
 var rendering = require('./util/rendering'),
     indexController = require('./controllers/index'),
-    loginController = require('./controllers/login');
+    // loginController = require('./controllers/login'),
+    apiControler = require('./controllers/apicontroler')
 
 module.exports = function (app, passport) {
 
@@ -9,13 +10,17 @@ module.exports = function (app, passport) {
     app.get('/', indexController.home);
     app.get('/home', ensureAuthenticated, indexController.userHome);
 
+    // Student
+    app.get('/student/profile', indexController.studentProfile); // 
 
+    // Data endpoint
+    app.get('/api/majors', apiControler.getMajors);
     // Auth
-    app.get('/register', loginController.registerPage);
-    app.post('/register', loginController.registerPost);
-    app.get('/login', loginController.loginPage);
-    app.post('/login', loginController.checkLogin);
-    app.get('/logout', loginController.logout);
+    // app.get('/register', loginController.registerPage);
+    // app.post('/register', loginController.registerPost);
+    // app.get('/login', loginController.loginPage);
+    // app.post('/login', loginController.checkLogin);
+    // app.get('/logout', loginController.logout);
 
     // 'rendering' can be used to format api calls (if you have an api)
     // into either html or json depending on the 'Accept' request header

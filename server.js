@@ -1,4 +1,4 @@
-
+    
 // TODO: Find a better way to load different configs in different env
 var dbConfig;
 try {
@@ -15,11 +15,11 @@ try {
 }
 
 
-var knex = require('knex')({
-        client: 'mysql',
-        connection: dbConfig
-    }), 
-    express = require('express'),
+// var knex = require('knex')({
+        // client: 'mysql',
+        // connection: dbConfig
+    // }), 
+var    express = require('express'),
     bodyParser = require('body-parser'),
     cookieParser = require('cookie-parser'),
     cookieSession = require('cookie-session'),
@@ -31,10 +31,12 @@ var knex = require('knex')({
     crypto = require('crypto'),
     Bookshelf = require('bookshelf'),
     messages = require('./util/messages');
+    db = require('./util/dbconnection')
+
 
 var app = express();
 
-Bookshelf.mysqlAuth = Bookshelf(knex);
+// Bookshelf.mysqlAuth = Bookshelf(knex);
 
 app.use(cookieParser('halsisiHHh445JjO0'));
 app.use(cookieSession({
@@ -45,8 +47,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(expressValidator());
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 app.use(flash());
 app.use(serveStatic('./public'));
 //app.use(express.favicon(__dirname + '/public/images/shortcut-icon.png'));
@@ -56,9 +58,11 @@ app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
-require('./util/auth')(passport);
+// require('./util/auth')(passport);
 require('./routes')(app, passport);
+db.connect(null,()=>{
+    app.listen(process.env.PORT || 3000);
 
-app.listen(process.env.PORT || 3000);
+    console.log('Listening on port 3000');
+});
 
-console.log('Listening on port 3000');

@@ -1,6 +1,6 @@
 var crypto = require('crypto'),
     passport = require('passport'),
-    data = require('../models/auth')();
+    // data = require('../models/auth')();
 
 
 exports.registerPage = function(req, res) {

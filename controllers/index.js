@@ -9,3 +9,7 @@ exports.home = function(req, res) {
 exports.userHome = function(req, res) {
     res.render('index/user-home');
 }
+
+exports.studentProfile = function(req, res){
+	res.render('student/profile');
+}
