@@ -1,5 +1,5 @@
 const major = require('../models/majors');
-
+const models  = require('../models');
 
 exports.getMajors = function(req, res) {
     console.log("called majors");
@@ -7,8 +7,30 @@ exports.getMajors = function(req, res) {
         if(err){
             console.log(err)
         }
-        res.json(rows);
+        let result  = rows.map((x)=>{
+            return {
+                'name':x.major_name,
+                'value':x.ID
+            }
+        })
+        let out = {
+            "success":true,
+            "results":result
+        }
+        res.json(out);
     })
+    
+}
+
+exports.createProfile = function(req, res) {
+    console.log("creating profile");
+    models.Profile.create({
+        first_name: req.body.firstName,
+        last_name: req.body.firstName
+    }).then(function() {
+        res.redirect('/');
+    });
+
     
 }
 
@@ -17,9 +39,9 @@ exports.getMajors = function(req, res) {
 //     var vpw = req.body.vpw;
 //     var pwu = req.body.pw;
 //     var un = req.body.un;
-    
+
 //     req.flash('username', un);
-    
+
 //     if(vpw !== pwu) {
 //         req.flash('error', 'Your passwords did not match.');
 //         res.redirect('/register');
@@ -34,7 +56,7 @@ exports.getMajors = function(req, res) {
 //         res.redirect('/register');
 //         return;
 //     }
-    
+
 //     var new_salt = Math.round((new Date().valueOf() * Math.random())) + '';
 //     var pw = crypto.createHmac('sha1', new_salt).update(pwu).digest('hex');
 //     var created = new Date().toISOString().slice(0, 19).replace('T', ' ');

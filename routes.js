@@ -15,6 +15,7 @@ module.exports = function (app, passport) {
 
     // Data endpoint
     app.get('/api/majors', apiControler.getMajors);
+    app.post('/api/profile', apicontroler.createProfile);
     // Auth
     // app.get('/register', loginController.registerPage);
     // app.post('/register', loginController.registerPost);

@@ -1,11 +1,11 @@
-var Bookshelf = require('bookshelf').mysqlAuth;
+// var Bookshelf = require('bookshelf').mysqlAuth;
 
-module.exports = function() {
-    var bookshelf = {};
+// module.exports = function() {
+//     var bookshelf = {};
 
-    bookshelf.ApiUser = Bookshelf.Model.extend({
-        tableName: 'users'
-    });
+//     bookshelf.ApiUser = Bookshelf.Model.extend({
+//         tableName: 'users'
+//     });
 
-    return bookshelf;
-}
+//     return bookshelf;
+// }

@@ -1,9 +1,27 @@
 app = {}; 
-app.serverAdress = 'localhost:8080/'
+app.serverAdress = '//localhost:3000/'
 
-app.getMajorList = function(){
-		axios.get(serverAdress+'api/majors')
-			.then((response)=>{
-				console.log(response);
-			})
+app.init = function (){
+	$('#selectMajor').dropdown({
+		apiSettings: {
+      // this url parses query server side and returns filtered results
+      		url: `${app.serverAdress}api/majors`,
+      		beforeXHR: (xhr) => {
+               // Set Custom Headers here 
+              console.log("reqqqq")
+            },
+            onResponse: (response) => {
+              // Modify your JSON response into the format SUI wants
+              return response
+            }
+
+  		},
+
+	})
+
+	$('#selectYear').dropdown({})
 }
+
+$(document).ready(function(){
+	app.init()
+})
