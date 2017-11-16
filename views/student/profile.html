@@ -2,10 +2,10 @@
 {% extends '../layouts/default.html' %}
 
 {% block content %}
-<h1>Student Infromation</h1>
+<h1>Update Student Infromation</h1>
 <div class="ui raised very padded text container segment">
 <form class="ui form" action="create" method="POST">
-    <h4 class="ui dividing header">Studnet Information</h4>
+    <h4 class="ui dividing header">Update Studnet Information</h4>
 
 
     
@@ -15,25 +15,26 @@
       <label class="col-md-4 control-label" for="firstName">First Name</label>  
       
           <input id="firstName" name="firstName" type="text" placeholder="First Name" class="form-control input-md" required="">
-          <small class="helper"><em>Some message.</em></small>
+          <small class="helper"><em>Your first name</em></small>
       
   </div>
 
   <!-- Text input-->
   <div class="field">
       <label class="col-md-4 control-label" for="lastName">Last Name</label>  
-      <div class="col-md-4 ui input">
+      
           <input id="lastName" name="lastName" type="text" placeholder="Last Name">
-          <span class="help-block">your last name</span>  
-      </div>
+          
+          <small class="helper"><em>Your last name</em></small>
+      
   </div>
 
   <div class="field">
       <label class="col-md-4 control-label" for="email">Last Name</label>  
-      <div class="col-md-4 ui input">
+      
           <input id="email" name="email" type="text" placeholder="Email Address">
-          <span class="help-block">Your @vcu.edu email address</span>  
-      </div>
+         
+           <small class="helper"><em>Your @vcu.edu email address</em></small>
   </div>
 
 <div class="field">
@@ -55,32 +56,37 @@
       <select name="selectMajor" class="ui selection dropdown" multiple="" id="selectMajor">
 
       </select>
+      <small class="helper"><em>Select all that apply</em></small>
 
       
   </div>
 
   <div class="field">
-      <label class="col-md-4 control-label" for="techskills">Last Name</label>  
-      <div class="col-md-4 ui input">
-          <input id="techskills" name="techskills" type="text" placeholder="Technology Skills">
-          <span class="help-block">Enter your technology skills, such as, MS Office, Adobe Photoshop, ...</span>  
-      </div>
+      <label class="col-md-4 control-label" for="techskills">Technology Skills</label>  
+      
+          <textarea id="techskills" rows="3" name="techskills" type="text" placeholder="Technology Skills"></textarea>
+          
+           <small class="helper"><em>Enter your technology skills, such as, MS Office, Adobe Photoshop, ...</em></small>
+
+     
   </div>
 
  <div class="field">
-      <label class="col-md-4 control-label" for="prevexperience">Last Name</label>  
-      <div class="col-md-4 ui input">
-          <input id="prevexperience" name="prevexperience" type="text" placeholder="Previous Experience">
-          <span class="help-block">Enter your previous experiences</span>  
-      </div>
+      <label class="col-md-4 control-label" for="prevexperience">Previous Experience</label>  
+      
+          <textarea id="prevexperience" rows="4" name="prevexperience" type="text" placeholder="Previous Experience"></textarea>
+          
+          <small class="helper"><em>Enter your previous experiences</em></small>
+
   </div>
 
   <div class="field">
-      <label class="col-md-4 control-label" for="additionalinfo">Last Name</label>  
-      <div class="col-md-4 ui input">
-          <input id="additionalinfo" name="additionalinfo" type="text" placeholder="Additional Information">
-          <span class="help-block">Additional Information</span>  
-      </div>
+      <label class="col-md-4 control-label" for="additionalinfo">Additional Information</label>  
+     
+          <textarea id="additionalinfo" rows="4" name="additionalinfo" type="text" placeholder="Additional Information"></textarea>
+          
+          <small class="helper"><em>Additional Information</em></small>
+      
   </div>
 
   <!-- Select Basic -->
@@ -90,7 +96,7 @@
   <div class="field">
       <label class="col-md-4 control-label" for="buttonSubmit"></label>
       
-      <button id="buttonSubmit" name="buttonSubmit" class="btn btn-primary">Update</button>
+      <button id="buttonSubmit" name="buttonSubmit" class="ui button">Update</button>
 
   </div>
 
