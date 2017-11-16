@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
+    "username": "adel",
+    "password": "mamal65serenti",
+    "database": "vcuvolunteer",
+    "host": "vcuvolunteer.ctoj8djqtees.us-west-2.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
